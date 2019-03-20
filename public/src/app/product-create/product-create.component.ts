@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+import { FORMERR } from 'dns';
 
 @Component({
   selector: 'app-product-create',
@@ -12,7 +13,13 @@ export class ProductCreateComponent implements OnInit {
   product: any = {
     title: '',
     price: '',
-    image: ''
+    image: '',
+    description: ''
+  }
+
+  formError: any = {
+    title: '',
+    price: ''
   }
 
   constructor(
@@ -23,9 +30,14 @@ export class ProductCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  addProductInfo(){   
+  addProductInfo(){    
     this._httpService.addProduct(this.product).subscribe(data => {
-      this._router.navigate(['/products']);
+      if(data['errors']){
+        this.formError.title = data['errors']['title']['message'];
+        this.formError.price = data['errors']['price']['message'];        
+      } else {     
+        this._router.navigate(['/products']);
+      }
     })
   }
 
