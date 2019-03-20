@@ -1,0 +1,21 @@
+<h3>Create New Product</h3>
+
+<div>
+
+  <form method="POST">    
+    <label for="">Title:</label>
+    <input type="text" [(ngModel)]="product.title" name="product.title" >
+    <label for="">Price:</label>
+    <input type="text" [(ngModel)]="product.price" name="product.price" >
+    <label for="">Image:</label>
+    <input type="text" [(ngModel)]="product.image" name="product.image" >
+    <div class="input-field col s12">
+      <textarea [(ngModel)]="product.description" name="product.description" class="materialize-textarea"></textarea>
+      <label for="textarea1">Product Description</label>
+    </div>
+
+    <button class="waves-effect waves-light btn" [routerLink]="['/products']">Cancel</button> &nbsp;
+    <button class="waves-effect waves-light btn" (click)="addProductInfo()">Submit</button>
+  </form>
+  
+</div>

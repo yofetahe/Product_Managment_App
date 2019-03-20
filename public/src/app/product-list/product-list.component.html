@@ -1,0 +1,24 @@
+<h3><i> Product List </i></h3>
+<!-- <div style="width: 100%"> -->
+<div class="product-items" *ngFor="let product of products">
+    <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light" style="text-align: center">
+          <img class="activator img_size" src="{{product.image}}" style="width: 250px;">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">
+            {{ product.title}}<i class="material-icons right">more_vert</i>
+          </span>
+          <p><a (click)="getUpdateForm([product._id])"> Edit </a> 
+          &nbsp; | &nbsp; 
+          <a (click)="deleteProduct([product._id])">Delete</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">
+            {{ product.title}}<i class="material-icons right">close</i>
+          </span>
+          <p>{{ product.description }}</p>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

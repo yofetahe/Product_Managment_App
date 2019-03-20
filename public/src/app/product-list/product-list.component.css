@@ -1,0 +1,20 @@
+*{
+    /* outline: red 1px solid; */
+}
+div.home{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+div.product-items{
+    display: inline-block;
+    width: 48%;
+    padding-right: 20px;
+    vertical-align: top;
+}
+a{
+    cursor: pointer;
+}
